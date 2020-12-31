@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>{% block title %}Zoom App{% endblock %}</title>
+    <script src="{% static 'zoom.js' %}"></script>
+
+</head>
+
+<body class="bg-light row">
+    <div id="sidebar" class="float-left bd-sidebar col-md-3">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

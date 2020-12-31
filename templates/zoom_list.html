@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Zoom List</h3>
+  {% csrf_token %}
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Meeting ID
+        </th>
+        <th>
+          # Participants
+        </th>
+      </tr>
+    </thead>
+    {% for meeting in meetings %}
+    <tr id="m{{ meeting.id }}">
+      <td>
+        {{ meeting.id }}
+      </td>
+      <td>
+        {{ meeting.participants }}
+      </td>
+      <td>
+        <button type="button" onclick="delete_meeting({{ meeting.id }})">End meeting</button>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
