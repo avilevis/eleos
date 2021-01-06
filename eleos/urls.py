@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from zoom_app import views
+from zoom_app import zoom_model_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('zoom_app/', views.ZoomView.as_view()),
-    path('zoom_app/table/', views.ZoomDataBaseView.as_view()),
+    path('zoom_app/table/', zoom_model_view.ZoomView.as_view(
+        {'get': 'list'}
+    )),
 ]
